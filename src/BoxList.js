@@ -13,16 +13,22 @@ function BoxList(){
         console.log(box)
         return(
         <Box 
-        key={box.id}  
+        key={box.id}
+        id={box.id}  
         backgroundColor={box.backgroundColor}
         width={box.width}
         height={box.height}
+        remove={removeBox}
         />
         )    
       })}
       </div>
     )
   }
+
+  const removeBox = id => {
+    setBoxes(boxes.filter(box => box.id !== id));
+  };
 
   const addBox = box => {
     let newBox = {...box, id: v4() };
